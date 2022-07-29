@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="IdentityCodePlace.txt" />
+    <Text Include="readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Date_head.h" />
@@ -38,6 +39,9 @@
     <ClCompile Include="src\system_define.cpp">
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)\include</AdditionalIncludeDirectories>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="package.sh" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

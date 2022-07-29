@@ -18,6 +18,9 @@
     <Text Include="IdentityCodePlace.txt">
       <Filter>资源文件</Filter>
     </Text>
+    <Text Include="readme.txt">
+      <Filter>源文件</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\system_head.h">
@@ -52,5 +55,10 @@
     <ClCompile Include="sample\main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="package.sh">
+      <Filter>源文件</Filter>
+    </None>
   </ItemGroup>
 </Project>
