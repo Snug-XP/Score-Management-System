@@ -19,21 +19,25 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Date_define.cpp" />
-    <ClCompile Include="ID_define.cpp" />
-    <ClCompile Include="OrderList_define.cpp" />
-    <ClCompile Include="要求.c" />
-    <ClCompile Include="高考成绩管理系统_define.cpp" />
-    <ClCompile Include="高考成绩管理系统_main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Date_head.h" />
-    <ClInclude Include="ID_head.h" />
-    <ClInclude Include="OrderList_head.h" />
-    <ClInclude Include="高考成绩管理系统_head.h" />
-  </ItemGroup>
-  <ItemGroup>
     <Text Include="IdentityCodePlace.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Date_head.h" />
+    <ClInclude Include="include\ID_head.h" />
+    <ClInclude Include="include\OrderList_head.h" />
+    <ClInclude Include="include\system_head.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="sample\main.cpp">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="src\Date_define.cpp" />
+    <ClCompile Include="src\ID_define.cpp" />
+    <ClCompile Include="src\OrderList_define.cpp" />
+    <ClCompile Include="src\要求.c" />
+    <ClCompile Include="src\system_define.cpp">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)\include</AdditionalIncludeDirectories>
+    </ClCompile>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

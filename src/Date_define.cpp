@@ -66,7 +66,7 @@ void Date::judge_February()//判断闰年，若为闰年，把二月最大天数改为29
 void Date::EditDate ()                //输入(或覆盖)并判断数据
 {
 	char str[20];
-loop1:  gets_s(str);
+loop1:  gets(str);
 		if(str[0]=='\0')
 		{
 			return;

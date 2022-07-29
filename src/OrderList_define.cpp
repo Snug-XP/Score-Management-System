@@ -1,4 +1,4 @@
-#include "高考成绩管理系统_head.h"
+#include "system_head.h"
 #include "OrderList_head.h"
 #include <string.h>
 #include <stdlib.h>
@@ -10,7 +10,7 @@ void print_options()
 {
 	cout<<"    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
 	cout<<"    +                                                          +"<<endl;
-	cout<<"    +                     高考成绩管理系统                     +"<<endl;
+	cout<<"    +                     system                     +"<<endl;
 	cout<<"    +                                                          +"<<endl;
 	cout<<"    +                    1 --- 录入学生信息                    +"<<endl;
 	cout<<"    +                    2 --- 修改学生信息                    +"<<endl;
@@ -119,7 +119,7 @@ int set_information(student *p,int get_num)
 	{
 		cout<<"请输入学生的14位准考证号（以准考证号为0结束录入）：";
 loop0:
-        gets_s(str);
+        gets(str);
 		if(strcmp(str,"0")==0)       return i;
         if(str[0]=='\0')
         {
@@ -172,7 +172,7 @@ Update0:
                 cout<<q[i]+1<<"，";//输出的排名比下标多一
             cout<<q[q[0]]+1<<">）：";
             char str[4];
-            gets_s(str);
+            gets(str);
             for(int i=0;str[i]!='\0';i++)
                 choose=choose*10+str[i]-48;
             choose--;//输入的排名减1变成对应在数组内的下标
@@ -189,7 +189,7 @@ Update1:
 Update1_1:
         do{
 			cout<<"您要修改该学生的信息吗？(y/n)";
-			scanf_s("%c",&Right);
+			scanf("%c",&Right);
 			if(Right=='\n')
                 goto Update1_1;
             else
@@ -202,7 +202,7 @@ Update1_1:
 		    char str[16];
 		    cout<<"请输入学生的14位准考证号：";
 Update2:
-		    gets_s(str);
+		    gets(str);
 		    if(strcmp(str,"0")==0)       return;
 		    if(str[0]=='\0')
             {
@@ -224,7 +224,7 @@ Update3:
         do
         {
             cout<<"是否继续修改其他学生信息？(y/n)";
-            scanf_s("%c",&Right);
+            scanf("%c",&Right);
             if(Right=='\n')
                 Right=0;
             else
@@ -253,7 +253,7 @@ search0:
     {
 		print_search_options();
 		cout<<"                         请输入选项(0-3):";
-		scanf_s("%d",&n);
+		scanf("%d",&n);
 		while(getchar()!='\n');
         switch(n)
 		{
@@ -270,7 +270,7 @@ search1:
         counts[0]=0;//counts[0]用来计数，其它用来储存查找到的序号
 		int find=0;
         cout<<"请输入要搜索的学生的准考证号（输入0返回）：";
-        gets_s(str);
+        gets(str);
 		if(strcmp(str,"0")==0)       goto search0;
         if(str[0]=='\0')
         {
@@ -303,7 +303,7 @@ search1:
         cout<<"    未找符合搜索项学生的信息!"<<endl;
 		do{
 			cout<<"是否继续按准考证号搜索学生信息？(y/n)";
-			scanf_s("%c",&Right);
+			scanf("%c",&Right);
 			while(getchar()!='\n');
 			if(Right!='y'&&Right!='n')
 				cout<<"    输入错误！"<<endl;
@@ -316,7 +316,7 @@ search2:
         counts[0]=0;//counts[0]用来计数，其它用来储存查找到的序号
 		int find=0;
         cout<<"请输入要搜索的学生的姓名（输入0返回）：";
-        gets_s(str);
+        gets(str);
 		if(strcmp(str,"0")==0)       goto search0;
         if(str[0]=='\0')
         {
@@ -348,7 +348,7 @@ search2:
         cout<<"    未找符合搜索项学生的信息!"<<endl;
 		do{
 			cout<<"是否继续按姓名搜索学生信息？(y/n)";
-			scanf_s("%c",&Right);
+			scanf("%c",&Right);
 			while(getchar()!='\n');
 			if(Right!='y'&&Right!='n')
 				cout<<"    输入错误！"<<endl;
@@ -386,7 +386,7 @@ search3:
         cout<<"    未找符合搜索项学生的信息!"<<endl;
 		do{
 			cout<<"是否继续按身份证号码搜索学生信息？(y/n)";
-			scanf_s("%c",&Right);
+			scanf("%c",&Right);
 			while(getchar()!='\n');
 			if(Right!='y'&&Right!='n')
 				cout<<"    输入错误！"<<endl;
@@ -428,7 +428,7 @@ Delete0:
             cout<<q[i]+1<<"，";
         cout<<q[q[0]]+1<<">)";
         char str[4];
-        gets_s(str);
+        gets(str);
         for(int i=0;str[i]!='\0';i++)
             choose=choose*10+str[i]-48;
         choose--;//输入的排名减1变成对应在数组内的下标
@@ -448,7 +448,7 @@ Delete1:
 Delete1_1:
         do{
         cout<<"您要删除该学生的信息吗？(y/n)";
-        scanf_s("%c",&Right);
+        scanf("%c",&Right);
         if(Right=='\n')
             goto Delete1_1;
         else
@@ -469,7 +469,7 @@ Delete1_1:
 Delete2:
     do{
         cout<<"是否还要删除其他学生信息？(y/n)";
-        scanf_s("%c",&Right);
+        scanf("%c",&Right);
         if(Right=='\n')
             Right=0;
         else
@@ -587,7 +587,7 @@ void Analysis(student *p,int get_num)
     }
     print_analysis_options();
     cout<<"                         请输入选项(0-5):";
-    scanf_s("%d",&num);
+    scanf("%d",&num);
     while(getchar()!='\n');
     switch(num)
     {

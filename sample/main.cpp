@@ -1,4 +1,4 @@
-#include "高考成绩管理系统_head.h"
+#include "system_head.h"
 #include "OrderList_head.h"
 
 using namespace std;
@@ -11,7 +11,7 @@ int main(void)
 	while(1){
 		print_options();
 		cout<<"                         请输入选项(0-6):";
-		scanf_s("%d",&n);
+		scanf("%d",&n);
 		while(getchar()!='\n');
         switch(n)
 		{

@@ -1,4 +1,4 @@
-#include "高考成绩管理系统_head.h"
+#include "system_head.h"
 #include <cstring>
 using namespace std;
 
@@ -50,7 +50,7 @@ student::student()
 //输入准考证号
 void student::set_exam_num(char str[])
 {
-    strcpy_s(exam_num,str);
+    strcpy(exam_num,str);
 }
 
 //输入姓名
@@ -59,7 +59,7 @@ void student::set_name()
     cout<<"请输入中文姓名：";
     char str[41];
 loop1:
-    gets_s(str);
+    gets(str);
     if(has_name&&str[0]=='\0')
     {
         cout<<"(提示：没修改)"<<endl;
@@ -72,7 +72,7 @@ loop1:
     }
     if( check_name(str) )
     {
-        strcpy_s(name,str);
+        strcpy(name,str);
     }
     else
     {
@@ -91,7 +91,7 @@ void student::set_sex( )
     char str[3];
     char i;
 loop2:
-    gets_s(str);
+    gets(str);
     if(has_sex&&str[0]=='\0')
     {
         cout<<"(提示：没修改)"<<endl;
@@ -123,7 +123,7 @@ loop2:
         cout<<"是否重新选择性别？(Y/N)   ";
         char ch[4];
 loop2_1:
-        gets_s(ch);
+        gets(ch);
         if(strlen(ch)>1)
         {
             cout<<  "输入错误！是否重新输入出生日期？(Y/N)   ";
@@ -141,9 +141,9 @@ loop2_1:
         }
     }
     if(sex)
-        strcpy_s(Sex,"男");
+        strcpy(Sex,"男");
     else
-        strcpy_s(Sex,"女");
+        strcpy(Sex,"女");
     has_sex=true;
 }
 
@@ -177,7 +177,7 @@ loop4:
         cout<<"是否重新输入出生日期？(Y/N)   ";
         char ch[4];
 loop4_1:
-        gets_s(ch);
+        gets(ch);
         if(strlen(ch)>1)
         {
             cout<<  "输入错误！是否重新输入出生日期？(Y/N)   ";
@@ -228,7 +228,7 @@ loop5:
         cout<<"是否修改出生日期？(Y/N)   ";
         char ch[4];
 loop5_2:
-        gets_s(ch);
+        gets(ch);
         if(strlen(ch)>1)
         {
             cout<<  "输入错误！是否修改出生日期？(Y/N)   ";
@@ -258,7 +258,7 @@ loop5_2:
         cout<<"是否修改性别？(Y/N)   ";
         char ch[4];
 loop5_3:
-        gets_s(ch);
+        gets(ch);
         if(strlen(ch)>1)
         {
             cout<<  "输入错误！是否修改性别？(Y/N)   ";
@@ -292,7 +292,7 @@ void student::set_is_science( )
     char str[3];
     char i;
 loop6:
-    gets_s(str);
+    gets(str);
     if(has_is_science&&str[0]=='\0')
     {
         cout<<"(提示：没修改)"<<endl;
@@ -319,9 +319,9 @@ loop6:
         goto loop6;
     }
     if(is_science)
-        strcpy_s(subject,"理综");
+        strcpy(subject,"理综");
     else
-        strcpy_s(subject,"文综");
+        strcpy(subject,"文综");
 }
 
 //输入考试成绩并简单判断输入
@@ -333,7 +333,7 @@ loop7_0:
     {
         scores[0]=0;
         cout<<"请输入语文成绩(0-150)：";
-        gets_s(str);
+        gets(str);
         if(has_scores&&str[0]=='\0')
         {
             cout<<"(提示：没修改)"<<endl;
@@ -355,7 +355,7 @@ loop7_1:
     {
         scores[1]=0;
         cout<<"请输入数学成绩(0-150)：";
-        gets_s(str);
+        gets(str);
         if(has_scores&&str[0]=='\0')
         {
             cout<<"(提示：没修改)"<<endl;
@@ -377,7 +377,7 @@ loop7_2:
     {
         scores[2]=0;
         cout<<"请输入英语成绩(0-150)：";
-        gets_s(str);
+        gets(str);
         if(has_scores&&str[0]=='\0')
         {
             cout<<"(提示：没修改)"<<endl;
@@ -399,7 +399,7 @@ loop7_3:
     {
         scores[3]=0;
         cout<<"请输入"<<subject<<"成绩(0-300)：";
-        gets_s(str);
+        gets(str);
         if(has_scores&&str[0]=='\0')
         {
             cout<<"(提示：没修改)"<<endl;

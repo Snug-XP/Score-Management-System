@@ -15,42 +15,42 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Date_define.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="ID_define.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="OrderList_define.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="高考成绩管理系统_define.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="高考成绩管理系统_main.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="要求.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Date_head.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ID_head.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="OrderList_head.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="高考成绩管理系统_head.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
     <Text Include="IdentityCodePlace.txt">
       <Filter>资源文件</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\system_head.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Date_head.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ID_head.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\OrderList_head.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Date_define.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ID_define.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\OrderList_define.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\system_define.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\要求.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="sample\main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -6,7 +6,7 @@ using namespace std;
 char get_right_lastnum(char const *str)//¸ù¾İÉí·İÖ¤Ç°17Î»Êı×ÖÇó³ö×îºóÒ»Î»Ğ£ÑéÂë
 {
     char a[19];
-    strcpy_s(a,str);
+    strcpy(a,str);
     char last_num;
     int i,n,sum=0;
     for(i=0;i<17;i++)
@@ -22,14 +22,13 @@ char get_right_lastnum(char const *str)//¸ù¾İÉí·İÖ¤Ç°17Î»Êı×ÖÇó³ö×îºóÒ»Î»Ğ£ÑéÂë
 
 int getCodePlaceTable( int a[])//½«ÎÄ¼şµÄÇø»®´æÈëÊı×éaÖĞ²¢·µ»ØÇø»®¸öÊı
 {
-    FILE* fp;
-    errno_t err = fopen_s(&fp, "IdentityCodePlace.txt", "r");
-    if (err !=0 ) {
+    FILE* fp = fopen("IdentityCodePlace.txt", "r");
+    if (fp == NULL) {
         fprintf(stderr,"\a£¨½«²»ÑéÖ¤ĞĞÕşÇø£©´æ·ÅĞĞÕşÇø»®¶ÔÕÕ±íµÄÎÄ¼ş[%s]²»´æÔÚ£¡\n","IdentityCodePlace.txt");
         return -1;
     }
     int n=0;
-    while (fscanf_s(fp,"%d",&a[n])==1)
+    while (fscanf(fp,"%d",&a[n])==1)
         n++;
     fclose(fp);
     return n;
@@ -48,7 +47,7 @@ bool check_exist(int a[],int code,int n)//¼ì²éÄãÊäÈëµÄÇø»®codeÊÇ·ñÔÚËùÓĞÇø»®µÄaÊ
 
 void ID::set_id(char *str)
 {
-    strcpy_s(this->id_num,str);
+    strcpy(this->id_num,str);
 }
 
 bool ID::check_id(char const *str)
@@ -94,7 +93,7 @@ bool ID::check_id(char const *str)
 
 ID &ID::operator=( ID &id)//ÖØÔØ¸³ÖµÔËËã·û
 {
-    strcpy_s(id_num,id.id_num);
+    strcpy(id_num,id.id_num);
     year=id.year, month=id.month, day=id.day;
     lastnum=id.lastnum;
     right_lastnum=id.right_lastnum;
@@ -114,7 +113,7 @@ istream &operator>>(istream &in,ID &id)
 {
     char str[19];
 loop5_1:
-    gets_s(str);
+    gets(str);
     if(str[0]=='\0')
         return in;
     if(strcmp(str,"0")==0)
