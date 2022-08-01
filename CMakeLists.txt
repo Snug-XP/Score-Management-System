@@ -17,10 +17,13 @@ target_link_libraries(scoreapp libcircle)
 
 install(TARGETS scoreapp
     COMPONENT linapp
-    RUNTIME DESTINATION "/root/myapp"
-    LIBRARY DESTINATION "/root/myapp"
-    DESTINATION "/root/myapp"
-)#我们使用install()命令告诉CMake在安装时要做什么。我们告诉命令我们要用于安装程序的目标（“ system”）。我们还告诉目标位置我们想要安装的位置，在这种情况下，它是“ /root/test”目录。RUNTIME和LIBRARY目标指定了在我们有其他库的情况下希望放置库的目标。
+    RUNTIME DESTINATION "/"
+    LIBRARY DESTINATION "/"
+    DESTINATION "/"
+)
+#我们使用install()命令告诉CMake在安装时要做什么。我们告诉命令我们要用于安装程序的目标（“ scoreapp”）。
+#我们还告诉目标位置我们想要安装的位置，在这种情况下，它是“ /”目录。
+#RUNTIME和LIBRARY目标指定了在我们有其他库的情况下希望放置库的目标。
 
 SET(CPACK_GENERATOR "DEB")
 SET(CPACK_DEBIAN_PACKAGE_MAINTAINER "KK") #required
