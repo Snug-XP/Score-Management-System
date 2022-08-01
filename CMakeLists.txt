@@ -17,9 +17,9 @@ target_link_libraries(systemapp libcircle)
 
 install(TARGETS systemapp
     COMPONENT linapp
-    RUNTIME DESTINATION "/root/test"
-    LIBRARY DESTINATION "/root/test"
-    DESTINATION "/root/test"
+    RUNTIME DESTINATION "/root/myapp/scoreapp"
+    LIBRARY DESTINATION "/root/myapp/scoreapp"
+    DESTINATION "/root/myapp/scoreapp"
 )#我们使用install()命令告诉CMake在安装时要做什么。我们告诉命令我们要用于安装程序的目标（“ system”）。我们还告诉目标位置我们想要安装的位置，在这种情况下，它是“ /root/test”目录。RUNTIME和LIBRARY目标指定了在我们有其他库的情况下希望放置库的目标。
 
 SET(CPACK_GENERATOR "DEB")
