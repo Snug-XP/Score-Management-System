@@ -10,7 +10,7 @@ void print_options()
 {
 	cout<<"    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
 	cout<<"    +                                                          +"<<endl;
-	cout<<"    +                     system                     +"<<endl;
+	cout<<"    +                     高考成绩管理系统                     +"<<endl;
 	cout<<"    +                                                          +"<<endl;
 	cout<<"    +                    1 --- 录入学生信息                    +"<<endl;
 	cout<<"    +                    2 --- 修改学生信息                    +"<<endl;
