@@ -1,15 +1,15 @@
-#include "system_head.h"
+ï»¿#include "system_head.h"
 #include <cstring>
 using namespace std;
 
-//¼ì²éÊäÈëµÄÃû×ÖÊÇ·ñºÏ·¨£¬·µ»ØtrueÎªºÏ·¨
+//æ£€æŸ¥è¾“å…¥çš„åå­—æ˜¯å¦åˆæ³•ï¼Œè¿”å›trueä¸ºåˆæ³•
 bool check_name(char *str)
 {
     char a;
     int b=strlen(str);
     if(b<4||b>10)
     {
-        cout<<"±ØĞëÎª2µ½5¸öºº×Ö"<<endl;
+        cout<<"å¿…é¡»ä¸º2åˆ°5ä¸ªæ±‰å­—"<<endl;
         return false;
     }
     for(int i=0;i<strlen(str);i++)
@@ -21,53 +21,53 @@ bool check_name(char *str)
     return true;
 }
 
-//¼ì²éÊäÈëµÄ×¼¿¼Ö¤ºÅÊÇ·ñºÏ·¨£¬·µ»ØtrueÎªºÏ·¨
+//æ£€æŸ¥è¾“å…¥çš„å‡†è€ƒè¯å·æ˜¯å¦åˆæ³•ï¼Œè¿”å›trueä¸ºåˆæ³•
 bool check_exam_num(char *str)
 {
     if(strlen(str)!=14)
     {
-        cout<<"(³¤¶È²»·û£¡£¡)"<<endl;;
+        cout<<"(é•¿åº¦ä¸ç¬¦ï¼ï¼)"<<endl;;
         return false;
     }
     for(int i=0;str[i]!='\0';i++)
     {
         if(str[i]<'0'||str[i]>'9')
         {
-            cout<<"(×¼¿¼Ö¤ºÅÖ»¿ÉÄÜÊÇ´¿Êı×Ö£¡£¡)"<<endl;
+            cout<<"(å‡†è€ƒè¯å·åªå¯èƒ½æ˜¯çº¯æ•°å­—ï¼ï¼)"<<endl;
             return false;
         }
     }
     return true;
 }
 
-//¹¹Ôìº¯Êı
-//¹¦ÄÜ£º½«has_id_num,has_sex,has_birthday³õÊ¼»¯Îªfalse
+//æ„é€ å‡½æ•°
+//åŠŸèƒ½ï¼šå°†has_id_num,has_sex,has_birthdayåˆå§‹åŒ–ä¸ºfalse
 student::student()
 {
     has_exam_num=has_name=has_sex=has_birthday=has_id_num=has_is_science=has_scores=0;
 }
 
-//ÊäÈë×¼¿¼Ö¤ºÅ
+//è¾“å…¥å‡†è€ƒè¯å·
 void student::set_exam_num(char str[])
 {
     strcpy(exam_num,str);
 }
 
-//ÊäÈëĞÕÃû
+//è¾“å…¥å§“å
 void student::set_name()
 {
-    cout<<"ÇëÊäÈëÖĞÎÄĞÕÃû£º";
+    cout<<"è¯·è¾“å…¥ä¸­æ–‡å§“åï¼š";
     char str[41];
 loop1:
     gets(str);
     if(has_name&&str[0]=='\0')
     {
-        cout<<"(ÌáÊ¾£ºÃ»ĞŞ¸Ä)"<<endl;
+        cout<<"(æç¤ºï¼šæ²¡ä¿®æ”¹)"<<endl;
         return ;
     }
     if(has_name==false&&str[0]=='\0')
     {
-        cout<<"  ¸ÃĞÕÃû±ØĞëÊäÈë£¡£¡\nÇëÊäÈëÖĞÎÄĞÕÃû£º";
+        cout<<"  è¯¥å§“åå¿…é¡»è¾“å…¥ï¼ï¼\nè¯·è¾“å…¥ä¸­æ–‡å§“åï¼š";
         goto loop1;
     }
     if( check_name(str) )
@@ -76,35 +76,35 @@ loop1:
     }
     else
     {
-        cout<<"ÊäÈëÃû×Ö²»ºÏ·¨£¡ÇëÖØĞÂÊäÈë£¨ÖĞÎÄ£©£º";
+        cout<<"è¾“å…¥åå­—ä¸åˆæ³•ï¼è¯·é‡æ–°è¾“å…¥ï¼ˆä¸­æ–‡ï¼‰ï¼š";
         goto loop1;
     }
 }
 
-//ÊäÈëĞÔ±ğ
-//      ĞŞ¸ÄÊ±ÅĞ¶ÏÓëÉí·İÖ¤ÉÏµÄĞÔ±ğÊÇ·ñ·ûºÏ
+//è¾“å…¥æ€§åˆ«
+//      ä¿®æ”¹æ—¶åˆ¤æ–­ä¸èº«ä»½è¯ä¸Šçš„æ€§åˆ«æ˜¯å¦ç¬¦åˆ
 void student::set_sex( )
 {
 
-    cout<<"Ñ¡ÔñÄãµÄĞÔ±ğ£º  0.Å®  1.ÄĞ"<<endl;
-    cout<<"ÇëÑ¡Ôñ£º";
+    cout<<"é€‰æ‹©ä½ çš„æ€§åˆ«ï¼š  0.å¥³  1.ç”·"<<endl;
+    cout<<"è¯·é€‰æ‹©ï¼š";
     char str[3];
     char i;
 loop2:
     gets(str);
     if(has_sex&&str[0]=='\0')
     {
-        cout<<"(ÌáÊ¾£ºÃ»ĞŞ¸Ä)"<<endl;
+        cout<<"(æç¤ºï¼šæ²¡ä¿®æ”¹)"<<endl;
         return ;
     }
     if(has_sex==false&&str[0]=='\0')
     {
-        cout<<"(ÌáÊ¾£º´ËÏîÎª±ØÌîÏî£¡£¡)\nÇëÑ¡Ôñ£º";
+        cout<<"(æç¤ºï¼šæ­¤é¡¹ä¸ºå¿…å¡«é¡¹ï¼ï¼)\nè¯·é€‰æ‹©ï¼š";
         goto loop2;
     }
     if(strlen(str)>1)
     {
-        cout<<"ÇëÊäÈëÕıÈ·µÄÑ¡Ïî£¡£¡ÖØĞÂÑ¡Ôñ£º";
+        cout<<"è¯·è¾“å…¥æ­£ç¡®çš„é€‰é¡¹ï¼ï¼é‡æ–°é€‰æ‹©ï¼š";
         goto loop2;
     }
     i=str[0]-48;
@@ -114,124 +114,124 @@ loop2:
     }
     else
     {
-        cout<<"ÇëÊäÈëÕıÈ·µÄÑ¡Ïî£¡£¡ÖØĞÂÑ¡Ôñ£º";
+        cout<<"è¯·è¾“å…¥æ­£ç¡®çš„é€‰é¡¹ï¼ï¼é‡æ–°é€‰æ‹©ï¼š";
         goto loop2;
     }
     if(has_id_num==true&&id_num.sex!=sex)
     {
-        cout<<"  ĞÔ±ğÓëÉí·İÖ¤ÉÏËùÏÔÊ¾µÄÓĞ²îÒì£¡£¡"<<endl;
-        cout<<"ÊÇ·ñÖØĞÂÑ¡ÔñĞÔ±ğ£¿(Y/N)   ";
+        cout<<"  æ€§åˆ«ä¸èº«ä»½è¯ä¸Šæ‰€æ˜¾ç¤ºçš„æœ‰å·®å¼‚ï¼ï¼"<<endl;
+        cout<<"æ˜¯å¦é‡æ–°é€‰æ‹©æ€§åˆ«ï¼Ÿ(Y/N)   ";
         char ch[4];
 loop2_1:
         gets(ch);
         if(strlen(ch)>1)
         {
-            cout<<  "ÊäÈë´íÎó£¡ÊÇ·ñÖØĞÂÊäÈë³öÉúÈÕÆÚ£¿(Y/N)   ";
+            cout<<  "è¾“å…¥é”™è¯¯ï¼æ˜¯å¦é‡æ–°è¾“å…¥å‡ºç”Ÿæ—¥æœŸï¼Ÿ(Y/N)   ";
             goto loop2_1;
         }
         if(ch[0]=='Y'||ch[0]=='y')
         {
-            cout<<"ÇëÖØĞÂÊäÈë³öÉúÈÕÆÚ£º";
+            cout<<"è¯·é‡æ–°è¾“å…¥å‡ºç”Ÿæ—¥æœŸï¼š";
             goto loop2;
         }
         else if(ch[0]!='N'&&ch[0]!='n')
         {
-            cout<<  "ÊäÈë´íÎó£¡ÊÇ·ñÖØĞÂÊäÈë³öÉúÈÕÆÚ£¿(Y/N)   ";
+            cout<<  "è¾“å…¥é”™è¯¯ï¼æ˜¯å¦é‡æ–°è¾“å…¥å‡ºç”Ÿæ—¥æœŸï¼Ÿ(Y/N)   ";
             goto loop2_1;
         }
     }
     if(sex)
-        strcpy(Sex,"ÄĞ");
+        strcpy(Sex,"ç”·");
     else
-        strcpy(Sex,"Å®");
+        strcpy(Sex,"å¥³");
     has_sex=true;
 }
 
-//ÊäÈë³öÉúÈÕÆÚ
-//¹¦ÄÜ£ºÓÃµ½×Ô¶¨ÒåDateÀà¶ÔÊäÈëÈÕÆÚ½øĞĞºÏ·¨ĞÔ¼ì²é
-//      ĞŞ¸ÄÊ±ÅĞ¶ÏÓëÉí·İÖ¤ÉÏµÄ³öÉúÈÕÆÚÊÇ·ñ·ûºÏ
+//è¾“å…¥å‡ºç”Ÿæ—¥æœŸ
+//åŠŸèƒ½ï¼šç”¨åˆ°è‡ªå®šä¹‰Dateç±»å¯¹è¾“å…¥æ—¥æœŸè¿›è¡Œåˆæ³•æ€§æ£€æŸ¥
+//      ä¿®æ”¹æ—¶åˆ¤æ–­ä¸èº«ä»½è¯ä¸Šçš„å‡ºç”Ÿæ—¥æœŸæ˜¯å¦ç¬¦åˆ
 void student::set_birthday( )
 {
-    cout<<"ÇëÊäÈë³öÉúÈÕÆÚ(ÄêÔÂÈÕ·Ö±ğÒÔÒ»¸ö¿Õ¸ñ·Ö¿ª)£º";
+    cout<<"è¯·è¾“å…¥å‡ºç”Ÿæ—¥æœŸ(å¹´æœˆæ—¥åˆ†åˆ«ä»¥ä¸€ä¸ªç©ºæ ¼åˆ†å¼€)ï¼š";
 loop4:
     cin>>birthday;
     if(has_birthday&&birthday.year==-1)
     {
-        cout<<"(ÌáÊ¾£ºÃ»ĞŞ¸Ä)"<<endl;
+        cout<<"(æç¤ºï¼šæ²¡ä¿®æ”¹)"<<endl;
         return ;
     }
     if(has_birthday==false&&birthday.year==-1)
     {
-        cout<<"(ÌáÊ¾£º´ËÏîÎª±ØÌîÏî£¡£¡)\nÇëÊäÈë³öÉúÈÕÆÚ£º";
+        cout<<"(æç¤ºï¼šæ­¤é¡¹ä¸ºå¿…å¡«é¡¹ï¼ï¼)\nè¯·è¾“å…¥å‡ºç”Ÿæ—¥æœŸï¼š";
         goto loop4;
     }
     if( (2017-birthday.year)<=3 || (2017-birthday.year>=100) )
     {
-        cout<<"±ğ¿ªÍæĞ¦ÁË£¬¸Ï½ôÊäÈëÕıÈ·µÄ³öÉúÈÕÆÚ°É~(3<ÄêÁä<100)"<<endl;
-        cout<<"ÇëÖØĞÂÊäÈë³öÉúÈÕÆÚ£º";
+        cout<<"åˆ«å¼€ç©ç¬‘äº†ï¼Œèµ¶ç´§è¾“å…¥æ­£ç¡®çš„å‡ºç”Ÿæ—¥æœŸå§~(3<å¹´é¾„<100)"<<endl;
+        cout<<"è¯·é‡æ–°è¾“å…¥å‡ºç”Ÿæ—¥æœŸï¼š";
         goto loop4;
     }
     if(has_id_num==true&& (id_num.year!=birthday.year||id_num.month!=birthday.month||id_num.day!=birthday.day) )
     {
-        cout<<"  ³öÉúÈÕÆÚÓëÉí·İÖ¤ÉÏËùÏÔÊ¾µÄÓĞ²îÒì£¡£¡"<<endl;
-        cout<<"ÊÇ·ñÖØĞÂÊäÈë³öÉúÈÕÆÚ£¿(Y/N)   ";
+        cout<<"  å‡ºç”Ÿæ—¥æœŸä¸èº«ä»½è¯ä¸Šæ‰€æ˜¾ç¤ºçš„æœ‰å·®å¼‚ï¼ï¼"<<endl;
+        cout<<"æ˜¯å¦é‡æ–°è¾“å…¥å‡ºç”Ÿæ—¥æœŸï¼Ÿ(Y/N)   ";
         char ch[4];
 loop4_1:
         gets(ch);
         if(strlen(ch)>1)
         {
-            cout<<  "ÊäÈë´íÎó£¡ÊÇ·ñÖØĞÂÊäÈë³öÉúÈÕÆÚ£¿(Y/N)   ";
+            cout<<  "è¾“å…¥é”™è¯¯ï¼æ˜¯å¦é‡æ–°è¾“å…¥å‡ºç”Ÿæ—¥æœŸï¼Ÿ(Y/N)   ";
             goto loop4_1;
         }
         if(ch[0]=='Y'||ch[0]=='y')
         {
-            cout<<"ÇëÖØĞÂÊäÈë³öÉúÈÕÆÚ£º";
+            cout<<"è¯·é‡æ–°è¾“å…¥å‡ºç”Ÿæ—¥æœŸï¼š";
             goto loop4;
         }
         else if(ch[0]!='N'&&ch[0]!='n')
         {
-            cout<<  "ÊäÈë´íÎó£¡ÊÇ·ñÖØĞÂÊäÈë³öÉúÈÕÆÚ£¿(Y/N)   ";
+            cout<<  "è¾“å…¥é”™è¯¯ï¼æ˜¯å¦é‡æ–°è¾“å…¥å‡ºç”Ÿæ—¥æœŸï¼Ÿ(Y/N)   ";
             goto loop4_1;
         }
     }
     has_birthday=true;
 }
 
-//ÊäÈëÉí·İÖ¤ºÅÂë
-//¹¦ÄÜ£º¼ì²éÉí·İÖ¤ÉÏµÄ³öÉúÈÕÆÚºÍĞÔ±ğÊÇ·ñÓëÇ°ÃæÊäÈëÒ»ÖÂ
-//      ¼ì²é×îºóÒ»Î»Ğ£ÑéÂëÊÇ·ñºÏ·¨
-//      ÓÃµ½×Ô¶¨ÒåIDÀà½øĞĞÊäÈë¼ì²é(°üº¬ĞĞÕşÇø»®)
+//è¾“å…¥èº«ä»½è¯å·ç 
+//åŠŸèƒ½ï¼šæ£€æŸ¥èº«ä»½è¯ä¸Šçš„å‡ºç”Ÿæ—¥æœŸå’Œæ€§åˆ«æ˜¯å¦ä¸å‰é¢è¾“å…¥ä¸€è‡´
+//      æ£€æŸ¥æœ€åä¸€ä½æ ¡éªŒç æ˜¯å¦åˆæ³•
+//      ç”¨åˆ°è‡ªå®šä¹‰IDç±»è¿›è¡Œè¾“å…¥æ£€æŸ¥(åŒ…å«è¡Œæ”¿åŒºåˆ’)
 void student::set_id_num()
 {
-    cout<<"ÇëÊäÈëÉí·İÖ¤ºÅÂë(¿É²»Ìî)£º";
+    cout<<"è¯·è¾“å…¥èº«ä»½è¯å·ç (å¯ä¸å¡«)ï¼š";
 loop5:
     cin>>id_num;
     if(has_id_num&&id_num.year==-1)
     {
-        cout<<"(ÌáÊ¾£ºÃ»ĞŞ¸Ä)"<<endl;
+        cout<<"(æç¤ºï¼šæ²¡ä¿®æ”¹)"<<endl;
         return ;
     }
     if(has_id_num==false&&id_num.year==-1)
     {
-        cout<<"(ÌáÊ¾£ºÎ´ÊäÈë)"<<endl;
+        cout<<"(æç¤ºï¼šæœªè¾“å…¥)"<<endl;
         return;
     }
     if(id_num.lastnum!=id_num.right_lastnum)
     {
-        cout<<"  Ğ£ÑéÂë´íÎó£¡";
-        cout<<"ÇëÖØĞÂÊäÈëÉí·İÖ¤ºÅÂë£º";
+        cout<<"  æ ¡éªŒç é”™è¯¯ï¼";
+        cout<<"è¯·é‡æ–°è¾“å…¥èº«ä»½è¯å·ç ï¼š";
         goto loop5;
     }
     if(has_birthday==true && (id_num.year!=birthday.year||id_num.month!=birthday.month||id_num.day!=birthday.day) )
     {
-        cout<<"  Éí·İÖ¤ÓëÇ°ÃæËùÈ·¶¨µÄ³öÉúÈÕÆÚÓĞ²îÒì£¡£¡"<<endl;
-        cout<<"ÊÇ·ñĞŞ¸Ä³öÉúÈÕÆÚ£¿(Y/N)   ";
+        cout<<"  èº«ä»½è¯ä¸å‰é¢æ‰€ç¡®å®šçš„å‡ºç”Ÿæ—¥æœŸæœ‰å·®å¼‚ï¼ï¼"<<endl;
+        cout<<"æ˜¯å¦ä¿®æ”¹å‡ºç”Ÿæ—¥æœŸï¼Ÿ(Y/N)   ";
         char ch[4];
 loop5_2:
         gets(ch);
         if(strlen(ch)>1)
         {
-            cout<<  "ÊäÈë´íÎó£¡ÊÇ·ñĞŞ¸Ä³öÉúÈÕÆÚ£¿(Y/N)   ";
+            cout<<  "è¾“å…¥é”™è¯¯ï¼æ˜¯å¦ä¿®æ”¹å‡ºç”Ÿæ—¥æœŸï¼Ÿ(Y/N)   ";
             goto loop5_2;
         }
         if(ch[0]=='Y'||ch[0]=='y')
@@ -239,73 +239,73 @@ loop5_2:
             birthday.year=id_num.year;
             birthday.month=id_num.month;
             birthday.day=id_num.day;
-            cout<<"ĞŞ¸Ä³É¹¦£¡"<<endl;
+            cout<<"ä¿®æ”¹æˆåŠŸï¼"<<endl;
         }
         else if(ch[0]=='N'||ch[0]=='n')
         {
-            cout<<"ÇëÖØĞÂÊäÈëÉí·İÖ¤ºÅÂë£º";
+            cout<<"è¯·é‡æ–°è¾“å…¥èº«ä»½è¯å·ç ï¼š";
             goto loop5;
         }
         else
         {
-            cout<<  "ÊäÈë´íÎó£¡ÊÇ·ñĞŞ¸Ä³öÉúÈÕÆÚ£¿(Y/N)   ";
+            cout<<  "è¾“å…¥é”™è¯¯ï¼æ˜¯å¦ä¿®æ”¹å‡ºç”Ÿæ—¥æœŸï¼Ÿ(Y/N)   ";
             goto loop5_2;
         }
     }
     if(has_sex==true&&id_num.sex!=sex)
     {
-        cout<<"  Éí·İÖ¤ÓëÇ°ÃæËùÈ·¶¨µÄĞÔ±ğÓĞ²îÒì£¡£¡"<<endl;
-        cout<<"ÊÇ·ñĞŞ¸ÄĞÔ±ğ£¿(Y/N)   ";
+        cout<<"  èº«ä»½è¯ä¸å‰é¢æ‰€ç¡®å®šçš„æ€§åˆ«æœ‰å·®å¼‚ï¼ï¼"<<endl;
+        cout<<"æ˜¯å¦ä¿®æ”¹æ€§åˆ«ï¼Ÿ(Y/N)   ";
         char ch[4];
 loop5_3:
         gets(ch);
         if(strlen(ch)>1)
         {
-            cout<<  "ÊäÈë´íÎó£¡ÊÇ·ñĞŞ¸ÄĞÔ±ğ£¿(Y/N)   ";
+            cout<<  "è¾“å…¥é”™è¯¯ï¼æ˜¯å¦ä¿®æ”¹æ€§åˆ«ï¼Ÿ(Y/N)   ";
             goto loop5_3;
         }
         if(ch[0]=='Y'||ch[0]=='y')
         {
             sex=!sex;
-            cout<<"ĞŞ¸Ä³É¹¦£¡"<<endl;
+            cout<<"ä¿®æ”¹æˆåŠŸï¼"<<endl;
         }
         else if(ch[0]=='N'||ch[0]=='n')
         {
-            cout<<"ÇëÖØĞÂÊäÈëÉí·İÖ¤ºÅÂë£º";
+            cout<<"è¯·é‡æ–°è¾“å…¥èº«ä»½è¯å·ç ï¼š";
             goto loop5;
         }
         else
         {
-            cout<<  "ÊäÈë´íÎó£¡ÊÇ·ñĞŞ¸ÄĞÔ±ğ£¿(Y/N)   ";
+            cout<<  "è¾“å…¥é”™è¯¯ï¼æ˜¯å¦ä¿®æ”¹æ€§åˆ«ï¼Ÿ(Y/N)   ";
             goto loop5_3;
         }
     }
     has_id_num=true;
 }
 
-//Ñ¡ÔñÎÄÀí¿Æ
+//é€‰æ‹©æ–‡ç†ç§‘
 void student::set_is_science( )
 {
 
-    cout<<"Ñ¡ÔñÄãµÄÀà±ğ£º  0.ÎÄ¿Æ  1.Àí¿Æ"<<endl;
-    cout<<"ÇëÑ¡Ôñ£º";
+    cout<<"é€‰æ‹©ä½ çš„ç±»åˆ«ï¼š  0.æ–‡ç§‘  1.ç†ç§‘"<<endl;
+    cout<<"è¯·é€‰æ‹©ï¼š";
     char str[3];
     char i;
 loop6:
     gets(str);
     if(has_is_science&&str[0]=='\0')
     {
-        cout<<"(ÌáÊ¾£ºÃ»ĞŞ¸Ä)"<<endl;
+        cout<<"(æç¤ºï¼šæ²¡ä¿®æ”¹)"<<endl;
         return ;
     }
     if(has_is_science==false&&str[0]=='\0')
     {
-        cout<<"(ÌáÊ¾£º´ËÏîÎª±ØÌîÏî£¡£¡)\nÇëÑ¡Ôñ£º";
+        cout<<"(æç¤ºï¼šæ­¤é¡¹ä¸ºå¿…å¡«é¡¹ï¼ï¼)\nè¯·é€‰æ‹©ï¼š";
         goto loop6;
     }
     if(strlen(str)>1)
     {
-        cout<<"ÇëÊäÈëÕıÈ·µÄÑ¡Ïî£¡£¡ÖØĞÂÑ¡Ôñ£º";
+        cout<<"è¯·è¾“å…¥æ­£ç¡®çš„é€‰é¡¹ï¼ï¼é‡æ–°é€‰æ‹©ï¼š";
         goto loop6;
     }
     i=str[0]-48;
@@ -315,16 +315,16 @@ loop6:
     }
     else
     {
-        cout<<"ÇëÊäÈëÕıÈ·µÄÑ¡Ïî£¡£¡ÖØĞÂÑ¡Ôñ£º";
+        cout<<"è¯·è¾“å…¥æ­£ç¡®çš„é€‰é¡¹ï¼ï¼é‡æ–°é€‰æ‹©ï¼š";
         goto loop6;
     }
     if(is_science)
-        strcpy(subject,"Àí×Û");
+        strcpy(subject,"ç†ç»¼");
     else
-        strcpy(subject,"ÎÄ×Û");
+        strcpy(subject,"æ–‡ç»¼");
 }
 
-//ÊäÈë¿¼ÊÔ³É¼¨²¢¼òµ¥ÅĞ¶ÏÊäÈë
+//è¾“å…¥è€ƒè¯•æˆç»©å¹¶ç®€å•åˆ¤æ–­è¾“å…¥
 void student::set_scores( )
 {
     char str[7];
@@ -332,103 +332,103 @@ loop7_0:
     do
     {
         scores[0]=0;
-        cout<<"ÇëÊäÈëÓïÎÄ³É¼¨(0-150)£º";
+        cout<<"è¯·è¾“å…¥è¯­æ–‡æˆç»©(0-150)ï¼š";
         gets(str);
         if(has_scores&&str[0]=='\0')
         {
-            cout<<"(ÌáÊ¾£ºÃ»ĞŞ¸Ä)"<<endl;
+            cout<<"(æç¤ºï¼šæ²¡ä¿®æ”¹)"<<endl;
             goto loop7_1 ;
         }
         if(str[0]=='\0')
         {
-            cout<<"(ÌáÊ¾£º´ËÏîÎª±ØÌîÏî£¡£¡)"<<endl;
+            cout<<"(æç¤ºï¼šæ­¤é¡¹ä¸ºå¿…å¡«é¡¹ï¼ï¼)"<<endl;
             goto loop7_0;
         }
         for(int i=0;str[i]!='\0';i++)
             scores[0]=scores[0]*10+str[i]-48;
         if(scores[0]>=0&&scores[0]<=150)
             break;
-        else cout<<"    ÓïÎÄ³É¼¨ÊäÈë´íÎó£¡£¡ÇëÖØĞÂÊäÈë"<<endl;
+        else cout<<"    è¯­æ–‡æˆç»©è¾“å…¥é”™è¯¯ï¼ï¼è¯·é‡æ–°è¾“å…¥"<<endl;
     }while(1);
 loop7_1:
     do
     {
         scores[1]=0;
-        cout<<"ÇëÊäÈëÊıÑ§³É¼¨(0-150)£º";
+        cout<<"è¯·è¾“å…¥æ•°å­¦æˆç»©(0-150)ï¼š";
         gets(str);
         if(has_scores&&str[0]=='\0')
         {
-            cout<<"(ÌáÊ¾£ºÃ»ĞŞ¸Ä)"<<endl;
+            cout<<"(æç¤ºï¼šæ²¡ä¿®æ”¹)"<<endl;
             goto loop7_2 ;
         }
         if(str[0]=='\0')
         {
-            cout<<"(ÌáÊ¾£º´ËÏîÎª±ØÌîÏî£¡£¡)"<<endl;
+            cout<<"(æç¤ºï¼šæ­¤é¡¹ä¸ºå¿…å¡«é¡¹ï¼ï¼)"<<endl;
             goto loop7_1;
         }
         for(int i=0;str[i]!='\0';i++)
             scores[1]=scores[1]*10+str[i]-48;
         if(scores[1]>=0&&scores[1]<=150)
             break;
-        else cout<<"    ÊıÑ§³É¼¨ÊäÈë´íÎó£¡£¡ÇëÖØĞÂÊäÈë"<<endl;
+        else cout<<"    æ•°å­¦æˆç»©è¾“å…¥é”™è¯¯ï¼ï¼è¯·é‡æ–°è¾“å…¥"<<endl;
     }while(1);
 loop7_2:
     do
     {
         scores[2]=0;
-        cout<<"ÇëÊäÈëÓ¢Óï³É¼¨(0-150)£º";
+        cout<<"è¯·è¾“å…¥è‹±è¯­æˆç»©(0-150)ï¼š";
         gets(str);
         if(has_scores&&str[0]=='\0')
         {
-            cout<<"(ÌáÊ¾£ºÃ»ĞŞ¸Ä)"<<endl;
+            cout<<"(æç¤ºï¼šæ²¡ä¿®æ”¹)"<<endl;
             goto loop7_3 ;
         }
         if(str[0]=='\0')
         {
-            cout<<"(ÌáÊ¾£º´ËÏîÎª±ØÌîÏî£¡£¡)"<<endl;
+            cout<<"(æç¤ºï¼šæ­¤é¡¹ä¸ºå¿…å¡«é¡¹ï¼ï¼)"<<endl;
             goto loop7_2;
         }
         for(int i=0;str[i]!='\0';i++)
             scores[2]=scores[2]*10+str[i]-48;
         if(scores[2]>=0&&scores[2]<=150)
             break;
-        else cout<<"    Ó¢Óï³É¼¨ÊäÈë´íÎó£¡£¡ÇëÖØĞÂÊäÈë"<<endl;
+        else cout<<"    è‹±è¯­æˆç»©è¾“å…¥é”™è¯¯ï¼ï¼è¯·é‡æ–°è¾“å…¥"<<endl;
     }while(1);
 loop7_3:
     do
     {
         scores[3]=0;
-        cout<<"ÇëÊäÈë"<<subject<<"³É¼¨(0-300)£º";
+        cout<<"è¯·è¾“å…¥"<<subject<<"æˆç»©(0-300)ï¼š";
         gets(str);
         if(has_scores&&str[0]=='\0')
         {
-            cout<<"(ÌáÊ¾£ºÃ»ĞŞ¸Ä)"<<endl;
+            cout<<"(æç¤ºï¼šæ²¡ä¿®æ”¹)"<<endl;
             return ;
         }
         if(str[0]=='\0')
         {
-            cout<<"(ÌáÊ¾£º´ËÏîÎª±ØÌîÏî£¡£¡)"<<endl;
+            cout<<"(æç¤ºï¼šæ­¤é¡¹ä¸ºå¿…å¡«é¡¹ï¼ï¼)"<<endl;
             goto loop7_3;
         }
         for(int i=0;str[i]!='\0';i++)
             scores[3]=scores[3]*10+str[i]-48;
         if(scores[3]>=0&&scores[3]<=300)
             break;
-        else cout<<"    "<<subject<<"³É¼¨ÊäÈë´íÎó£¡£¡ÇëÖØĞÂÊäÈë"<<endl;
+        else cout<<"    "<<subject<<"æˆç»©è¾“å…¥é”™è¯¯ï¼ï¼è¯·é‡æ–°è¾“å…¥"<<endl;
     }while(1);
     sum_score=scores[0]+scores[1]+scores[2]+scores[3];
 }
 
-//ÊäÈëËùÓĞĞÅÏ¢
+//è¾“å…¥æ‰€æœ‰ä¿¡æ¯
 void student::set_all( char str[])
 {
-    set_exam_num(str);//ÊäÈë×¼¿¼Ö¤ºÅ
-    set_name( );//ÊäÈëĞÕÃû
-    set_sex( );//Ñ¡ÔñĞÔ±ğ
-    set_birthday( );//ÊäÈë³öÉúÈÕ
-    set_id_num( );//ÊäÈëÉí·İÖ¤ºÅÂë
-    set_is_science( );//Ñ¡ÔñÎÄÀí¿Æ
-    set_scores( );//ÊäÈë¿¼ÊÔ³É¼¨
+    set_exam_num(str);//è¾“å…¥å‡†è€ƒè¯å·
+    set_name( );//è¾“å…¥å§“å
+    set_sex( );//é€‰æ‹©æ€§åˆ«
+    set_birthday( );//è¾“å…¥å‡ºç”Ÿæ—¥
+    set_id_num( );//è¾“å…¥èº«ä»½è¯å·ç 
+    set_is_science( );//é€‰æ‹©æ–‡ç†ç§‘
+    set_scores( );//è¾“å…¥è€ƒè¯•æˆç»©
 }
 
 

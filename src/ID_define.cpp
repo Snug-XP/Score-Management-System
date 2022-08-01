@@ -1,9 +1,9 @@
-#include "ID_head.h"
+ï»¿#include "ID_head.h"
 #include <string.h>
 #include <stdlib.h>
 using namespace std;
 
-char get_right_lastnum(char const *str)//¸ù¾İÉí·İÖ¤Ç°17Î»Êı×ÖÇó³ö×îºóÒ»Î»Ğ£ÑéÂë
+char get_right_lastnum(char const *str)//æ ¹æ®èº«ä»½è¯å‰17ä½æ•°å­—æ±‚å‡ºæœ€åä¸€ä½æ ¡éªŒç 
 {
     char a[19];
     strcpy(a,str);
@@ -20,11 +20,11 @@ char get_right_lastnum(char const *str)//¸ù¾İÉí·İÖ¤Ç°17Î»Êı×ÖÇó³ö×îºóÒ»Î»Ğ£ÑéÂë
     return last_num;
 }
 
-int getCodePlaceTable( int a[])//½«ÎÄ¼şµÄÇø»®´æÈëÊı×éaÖĞ²¢·µ»ØÇø»®¸öÊı
+int getCodePlaceTable( int a[])//å°†æ–‡ä»¶çš„åŒºåˆ’å­˜å…¥æ•°ç»„aä¸­å¹¶è¿”å›åŒºåˆ’ä¸ªæ•°
 {
     FILE* fp = fopen("IdentityCodePlace.txt", "r");
     if (fp == NULL) {
-        fprintf(stderr,"\a£¨½«²»ÑéÖ¤ĞĞÕşÇø£©´æ·ÅĞĞÕşÇø»®¶ÔÕÕ±íµÄÎÄ¼ş[%s]²»´æÔÚ£¡\n","IdentityCodePlace.txt");
+        fprintf(stderr,"\aï¼ˆå°†ä¸éªŒè¯è¡Œæ”¿åŒºï¼‰å­˜æ”¾è¡Œæ”¿åŒºåˆ’å¯¹ç…§è¡¨çš„æ–‡ä»¶[%s]ä¸å­˜åœ¨ï¼\n","IdentityCodePlace.txt");
         return -1;
     }
     int n=0;
@@ -34,7 +34,7 @@ int getCodePlaceTable( int a[])//½«ÎÄ¼şµÄÇø»®´æÈëÊı×éaÖĞ²¢·µ»ØÇø»®¸öÊı
     return n;
 }
 
-bool check_exist(int a[],int code,int n)//¼ì²éÄãÊäÈëµÄÇø»®codeÊÇ·ñÔÚËùÓĞÇø»®µÄaÊı×éÖĞ
+bool check_exist(int a[],int code,int n)//æ£€æŸ¥ä½ è¾“å…¥çš„åŒºåˆ’codeæ˜¯å¦åœ¨æ‰€æœ‰åŒºåˆ’çš„aæ•°ç»„ä¸­
 {
     int i;
     for(i=0;i<n;i++)
@@ -54,11 +54,11 @@ bool ID::check_id(char const *str)
 {
     if(strlen(str)!=18)
     {
-        cout<<"  ³¤¶È²»·ûºÏ¹æ¶¨£¡";
+        cout<<"  é•¿åº¦ä¸ç¬¦åˆè§„å®šï¼";
         return false;
     }
     
-    //ÏÂÃæÈ·¶¨ÊäÈëÉí·İÖ¤µÄÄêÔÂÈÕ
+    //ä¸‹é¢ç¡®å®šè¾“å…¥èº«ä»½è¯çš„å¹´æœˆæ—¥
     year=month=day=0;
     for(int i=6;i<10;i++)
     {
@@ -68,30 +68,30 @@ bool ID::check_id(char const *str)
     month=month*10+str[11]-48;
     day=str[12]-48;
     day=day*10+str[13]-48;
-    //È·¶¨ÊäÈëÉí·İÖ¤µÄĞÔ±ğ
+    //ç¡®å®šè¾“å…¥èº«ä»½è¯çš„æ€§åˆ«
     if(str[16]%2==0)
-        sex=false;//Å®
+        sex=false;//å¥³
     else
-        sex=true;//ÄĞ
+        sex=true;//ç”·
     
     int a[3600];
-    int n = getCodePlaceTable(a);//½«ÎÄ¼şµÄÇø»®´æÈëÊı×éaÖĞ²¢·µ»ØÇø»®¸öÊı
+    int n = getCodePlaceTable(a);//å°†æ–‡ä»¶çš„åŒºåˆ’å­˜å…¥æ•°ç»„aä¸­å¹¶è¿”å›åŒºåˆ’ä¸ªæ•°
 
-    if (n == -1) return true; //¶ÁÎÄ¼ş³öÏÖÎÊÌâ£¬²»ÅĞ¶ÏĞĞÕşÇø
+    if (n == -1) return true; //è¯»æ–‡ä»¶å‡ºç°é—®é¢˜ï¼Œä¸åˆ¤æ–­è¡Œæ”¿åŒº
     int code = 0;
-    for (int i = 0; i < 6; i++)//È¡Éí·İÖ¤Ç°ÁùÎ»±ä³Éint
+    for (int i = 0; i < 6; i++)//å–èº«ä»½è¯å‰å…­ä½å˜æˆint
     {
         code = code * 10 + str[i] - 48;
     }
     if (check_exist(a, code, n) == false)
     {
-        cout << "  ĞĞÕşÇø»®´íÎó£¡";
+        cout << "  è¡Œæ”¿åŒºåˆ’é”™è¯¯ï¼";
         return false;
     }
     return true;
 }
 
-ID &ID::operator=( ID &id)//ÖØÔØ¸³ÖµÔËËã·û
+ID &ID::operator=( ID &id)//é‡è½½èµ‹å€¼è¿ç®—ç¬¦
 {
     strcpy(id_num,id.id_num);
     year=id.year, month=id.month, day=id.day;
@@ -101,7 +101,7 @@ ID &ID::operator=( ID &id)//ÖØÔØ¸³ÖµÔËËã·û
     return *this;
 }
 
-bool ID::operator==( const ID &id)//ÖØÔØ==ÔËËã·û
+bool ID::operator==( const ID &id)//é‡è½½==è¿ç®—ç¬¦
 {
     if(strcmp(id_num,id.id_num)==0)
         return true;
@@ -127,7 +127,7 @@ loop5_1:
     }
     else
     {
-        cout<<"ÇëÖØĞÂÊäÈëÉí·İÖ¤ºÅÂë£º";
+        cout<<"è¯·é‡æ–°è¾“å…¥èº«ä»½è¯å·ç ï¼š";
         goto loop5_1;
     }
     id.lastnum=str[17];

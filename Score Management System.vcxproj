@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <Text Include="CMakeLists.txt" />
     <Text Include="IdentityCodePlace.txt" />
     <Text Include="readme.txt" />
   </ItemGroup>

@@ -1,16 +1,16 @@
-#include "system_head.h"
+ï»¿#include "system_head.h"
 #include "OrderList_head.h"
 
 using namespace std;
 int main(void)
 {
-    cout<<"    ÐòÑÔ£º±¾ÏµÍ³¶Ô¸÷ÖÖÊäÈëÒ²¶¼ÓÐ×ö³öÏàÓ¦¼ì²é£¨×îÂé·³µÄ~£©"<<endl<<endl<<endl;
-    int counts[101];//ÓÃÓÚ²éÑ¯Ñ§Éú£¬counts[0]ÓÃÀ´¼ÆÊý£¬ÆäËüÓÃÀ´´¢´æ²éÕÒµ½µÄÅÅÃûÐòºÅ
+    cout<<"    åºè¨€ï¼šæœ¬ç³»ç»Ÿå¯¹å„ç§è¾“å…¥ä¹Ÿéƒ½æœ‰åšå‡ºç›¸åº”æ£€æŸ¥ï¼ˆæœ€éº»çƒ¦çš„~ï¼‰"<<endl<<endl<<endl;
+    int counts[101];//ç”¨äºŽæŸ¥è¯¢å­¦ç”Ÿï¼Œcounts[0]ç”¨æ¥è®¡æ•°ï¼Œå…¶å®ƒç”¨æ¥å‚¨å­˜æŸ¥æ‰¾åˆ°çš„æŽ’ååºå·
 	student Students[100];
-	int n,get_num=0;//get_numÎªÄ¿Ç°ÏµÍ³ÄÚµÄÑ§ÉúÊýÁ¿
+	int n,get_num=0;//get_numä¸ºç›®å‰ç³»ç»Ÿå†…çš„å­¦ç”Ÿæ•°é‡
 	while(1){
 		print_options();
-		cout<<"                         ÇëÊäÈëÑ¡Ïî(0-6):";
+		cout<<"                         è¯·è¾“å…¥é€‰é¡¹(0-6):";
 		scanf("%d",&n);
 		while(getchar()!='\n');
         switch(n)
@@ -19,13 +19,13 @@ int main(void)
 		case 2 : Update(Students,get_num);Order(Students,get_num);break;
 		case 3 :
 		    Search(Students,get_num,counts);
-            printf("°´»Ø³µ¼ü¼ÌÐø...");
+            printf("æŒ‰å›žè½¦é”®ç»§ç»­...");
             getchar();break;
 		case 4 : Delete(Students,&get_num);Order(Students,get_num);break;
 		case 5 : Look(Students,get_num);break;
 		case 6 : Analysis(Students,get_num);break;
-		case 0 : cout<<"\n                      ¸ÐÐ»Ê¹ÓÃ±¾ÏµÍ³£¬ÔÙ¼û~  ^o^"<<endl;return 0;
-		default : cout<<"ÊäÈë´íÎó£¡ÇëÖØÐÂÊäÈë...\n"<<endl;
+		case 0 : cout<<"\n                      æ„Ÿè°¢ä½¿ç”¨æœ¬ç³»ç»Ÿï¼Œå†è§~  ^o^"<<endl;return 0;
+		default : cout<<"è¾“å…¥é”™è¯¯ï¼è¯·é‡æ–°è¾“å…¥...\n"<<endl;
 		}
 	}
 }

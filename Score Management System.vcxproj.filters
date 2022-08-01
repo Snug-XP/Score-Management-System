@@ -21,6 +21,9 @@
     <Text Include="readme.txt">
       <Filter>源文件</Filter>
     </Text>
+    <Text Include="CMakeLists.txt">
+      <Filter>源文件</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\system_head.h">

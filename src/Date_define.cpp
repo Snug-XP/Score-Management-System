@@ -1,53 +1,53 @@
-#include "Date_head.h"
+ï»¿#include "Date_head.h"
 #include <string.h>
 using namespace std;
-bool judge ( int year,int month,int day )//ÅĞ¶ÏÈÕÆÚÊÇ·ñºÏ·¨,·µ»Ø1Îª·Ç·¨ÈÕÆÚ
+bool judge ( int year,int month,int day )//åˆ¤æ–­æ—¥æœŸæ˜¯å¦åˆæ³•,è¿”å›1ä¸ºéæ³•æ—¥æœŸ
 {
 	if(month>12||month<1) {
-		cout<<"ÔÂÊıÊäÈë´íÎó£¡"<<endl<<"ÇëÖØĞÂÊäÈë£º"; return true;}
+		cout<<"æœˆæ•°è¾“å…¥é”™è¯¯ï¼"<<endl<<"è¯·é‡æ–°è¾“å…¥ï¼š"; return true;}
 	else if(day>31||day<1) {
-		cout<<"ÈÕÊıÊäÈë´íÎó£¡"<<endl<<"ÇëÖØĞÂÊäÈë£º"; return true;}
+		cout<<"æ—¥æ•°è¾“å…¥é”™è¯¯ï¼"<<endl<<"è¯·é‡æ–°è¾“å…¥ï¼š"; return true;}
 	else if(year>9999||year<1) {
-		cout<<"ÄêÊıÊäÈë´íÎó£¡"<<endl<<"ÇëÖØĞÂÊäÈë£º"; return true;}
+		cout<<"å¹´æ•°è¾“å…¥é”™è¯¯ï¼"<<endl<<"è¯·é‡æ–°è¾“å…¥ï¼š"; return true;}
 	else if((month==2||month==4||month==6||month==9||month==11)&&day==31) {
-		cout<<"ÈÕÊıÊäÈë´íÎó£¡"<<endl<<"ÇëÖØĞÂÊäÈë£º"; return true;}
+		cout<<"æ—¥æ•°è¾“å…¥é”™è¯¯ï¼"<<endl<<"è¯·é‡æ–°è¾“å…¥ï¼š"; return true;}
 	else if(month==2&&day==30) {
-		cout<<"¸ÃÄê2ÔÂµÄÈÕÊıÊäÈë´íÎó£¡"<<endl<<"ÇëÖØĞÂÊäÈë£º"; return true;}
+		cout<<"è¯¥å¹´2æœˆçš„æ—¥æ•°è¾“å…¥é”™è¯¯ï¼"<<endl<<"è¯·é‡æ–°è¾“å…¥ï¼š"; return true;}
 	else if(month==2&&day==29)
 	{
 		if(year%4==0&&year%100!=0||year%400==0) return false;
 		else {
-			cout<<"¸ÃÄê2ÔÂµÄÈÕÊıÊäÈë´íÎó£¡ÇëÖØĞÂÊäÈë£º"; return true;}
+			cout<<"è¯¥å¹´2æœˆçš„æ—¥æ•°è¾“å…¥é”™è¯¯ï¼è¯·é‡æ–°è¾“å…¥ï¼š"; return true;}
 	}
 	else  return false;
 }
 ////////////////////////////////////////////////////////////////
-bool easy_check(char *p)//¼òµ¥ÅĞ¶ÏÊäÈëÊÇ·ñºÏ·¨£¬·µ»Ø1Îª·Ç·¨
+bool easy_check(char *p)//ç®€å•åˆ¤æ–­è¾“å…¥æ˜¯å¦åˆæ³•ï¼Œè¿”å›1ä¸ºéæ³•
 {
-	int n=0;//¼ì²é¿Õ¸ñ¸öÊı
+	int n=0;//æ£€æŸ¥ç©ºæ ¼ä¸ªæ•°
 	if(strlen(p)>10){
-		cout<<"ÊäÈë³¤¶ÈÃ÷ÏÔÓĞÎó£¡"<<endl<<"ÇëÖØĞÂÊäÈë£º";
+		cout<<"è¾“å…¥é•¿åº¦æ˜æ˜¾æœ‰è¯¯ï¼"<<endl<<"è¯·é‡æ–°è¾“å…¥ï¼š";
 		return true;
 	}
 	for(int i=0;i<strlen(p);i++){
 		if(p[i]!=' '&&( p[i]<'0'||p[i]>'9' )){
-			cout<<"ÇëÊäÈëÊı×Ö»ò¿Õ¸ñ£¬²»ÒªÊäÈëÆäËü×Ö·û£¡"<<endl<<"ÇëÖØĞÂÊäÈë£º";
+			cout<<"è¯·è¾“å…¥æ•°å­—æˆ–ç©ºæ ¼ï¼Œä¸è¦è¾“å…¥å…¶å®ƒå­—ç¬¦ï¼"<<endl<<"è¯·é‡æ–°è¾“å…¥ï¼š";
 			return true;
 		}
 		if(p[i]==' ')  n++;
 	}
 	if (n!=2) {
-		cout<<"ÊäÈë´íÎó£¡"<<endl<<"ÇëÖØĞÂÊäÈë£º";
+		cout<<"è¾“å…¥é”™è¯¯ï¼"<<endl<<"è¯·é‡æ–°è¾“å…¥ï¼š";
 		return true;
 	}
 
 	return false;
 }
-/////////////////////////////////////////////////////////////////////////|¿ªÊ¼½¨Á¢ÈÕÆÚÀà|
+/////////////////////////////////////////////////////////////////////////|å¼€å§‹å»ºç«‹æ—¥æœŸç±»|
 
 Date::Date()
 {
-	year=month=day=-1;//¿ÕÈÕÆÚ
+	year=month=day=-1;//ç©ºæ—¥æœŸ
 	for(int i=0;i<13;i++){
 		if(i==0||i==1||i==3||i==5||i==7||i==8||i==10||i==12)
 			Mon_day[i]=31;
@@ -56,14 +56,14 @@ Date::Date()
 	}
 }
 
-void Date::judge_February()//ÅĞ¶ÏÈòÄê£¬ÈôÎªÈòÄê£¬°Ñ¶şÔÂ×î´óÌìÊı¸ÄÎª29
+void Date::judge_February()//åˆ¤æ–­é—°å¹´ï¼Œè‹¥ä¸ºé—°å¹´ï¼ŒæŠŠäºŒæœˆæœ€å¤§å¤©æ•°æ”¹ä¸º29
 {
 	if(year%4==0&&year%100!=0||year%400==0)
 		Mon_day[2]=29;
 	else Mon_day[2]=28;
 }
 
-void Date::EditDate ()                //ÊäÈë(»ò¸²¸Ç)²¢ÅĞ¶ÏÊı¾İ
+void Date::EditDate ()                //è¾“å…¥(æˆ–è¦†ç›–)å¹¶åˆ¤æ–­æ•°æ®
 {
 	char str[20];
 loop1:  gets(str);
@@ -76,15 +76,15 @@ loop1:  gets(str);
 		}
 		year=month=day=0;
 		int i;
-		for (i=0;str[i] != ' ';i++)//°ÑstrÖĞµÄÄê×ª»»³ÉÊı×Ö
+		for (i=0;str[i] != ' ';i++)//æŠŠsträ¸­çš„å¹´è½¬æ¢æˆæ•°å­—
 		{
 			year=year*10+str[i]-48;
 		}
-		for (i++;str[i] != ' ';i++)//°ÑstrÖĞµÄÔÂ×ª»»³ÉÊı×Ö
+		for (i++;str[i] != ' ';i++)//æŠŠsträ¸­çš„æœˆè½¬æ¢æˆæ•°å­—
 		{
 			month=month*10+str[i]-48;
 		}
-		for (i++;i<strlen(str);i++)//°ÑstrÖĞµÄÈÕ×ª»»³ÉÊı×Ö
+		for (i++;i<strlen(str);i++)//æŠŠsträ¸­çš„æ—¥è½¬æ¢æˆæ•°å­—
 		{
 			day=day*10+str[i]-48;
 		}
@@ -94,7 +94,7 @@ loop1:  gets(str);
 		judge_February();
 }
 
-Date &Date::operator=(Date &d )                    //ÖØÔØ¸³ÖµÔËËã·û
+Date &Date::operator=(Date &d )                    //é‡è½½èµ‹å€¼è¿ç®—ç¬¦
 {
     year=d.day;
     month=d.month;
@@ -106,15 +106,15 @@ Date &Date::operator=(Date &d )                    //ÖØÔØ¸³ÖµÔËËã·û
     return *this;
 }
 
-istream &operator>>(istream &in ,Date &d )//ÖØÔØÊäÈëÔËËã·û
+istream &operator>>(istream &in ,Date &d )//é‡è½½è¾“å…¥è¿ç®—ç¬¦
 {
 	d.EditDate();
 	return in;
 }
 
-ostream &operator<<(ostream &out ,Date &d )//ÖØÔØÊä³öÔËËã·û
+ostream &operator<<(ostream &out ,Date &d )//é‡è½½è¾“å‡ºè¿ç®—ç¬¦
 {
-    cout<<d.year<<"Äê"<<d.month<<"ÔÂ"<<d.day<<"ÈÕ";
+    cout<<d.year<<"å¹´"<<d.month<<"æœˆ"<<d.day<<"æ—¥";
 	return out;
 }
 
