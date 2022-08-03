@@ -1,5 +1,6 @@
 ﻿#include "system_head.h"
 #include <cstring>
+# author：向鹏
 using namespace std;
 
 //检查输入的名字是否合法，返回true为合法

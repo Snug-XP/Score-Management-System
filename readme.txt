@@ -1,5 +1,1 @@
-打包指令：
-mkdir build && cd build
-cmake ..
-cmake --build .
-cpack
+以前写的一个控制台程序，高考成绩管理系统，这边用来测试在服务器上通过cmake进行编译打包，生成相应的deb安装包文件。

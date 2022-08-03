@@ -1,4 +1,4 @@
-
+# author：向鹏
 void print_options();//打印主菜单选项
 void print_search_options();//打印搜索菜单选项
 void Look(student *p,int get_num);//浏览学生成绩
