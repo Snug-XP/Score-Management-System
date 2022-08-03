@@ -1,7 +1,7 @@
 ﻿#include "ID_head.h"
 #include <string.h>
 #include <stdlib.h>
-# author：向鹏
+// # author：向鹏
 using namespace std;
 
 char get_right_lastnum(char const *str)//根据身份证前17位数字求出最后一位校验码

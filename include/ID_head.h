@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <iostream>
-# author：向鹏
+// # author：向鹏
 char get_right_lastnum(char const *a);//根据身份证前17位数字求出最后一位校验码
 bool check_exist(int a[],int code,int n);//检查你输入的区划code是否在所有区划的a数组中
 

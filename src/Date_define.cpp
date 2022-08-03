@@ -1,6 +1,6 @@
 ﻿#include "Date_head.h"
 #include <string.h>
-# author：向鹏
+// # author：向鹏
 using namespace std;
 bool judge ( int year,int month,int day )//判断日期是否合法,返回1为非法日期
 {

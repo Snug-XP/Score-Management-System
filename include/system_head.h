@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Date_head.h"
 #include "ID_head.h"
-# author：向鹏
+// # author：向鹏
 bool check_name(char *str);//检查输入的名字是否合法，返回true为合法
 bool check_exam_num(char *str);//检查输入的准考证号是否合法，返回true为合法
 class student

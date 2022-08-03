@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <iostream>
-# author：向鹏
+// # author：向鹏
 bool judge ( int ,int , int );  //判断日期是否合法,返回1为非法日期
 bool easy_check ( char );       //简单判断输入是否合法，返回1为非法
 class Date{
